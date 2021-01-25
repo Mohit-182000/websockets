@@ -47,10 +47,6 @@ class AppServiceProvider extends ServiceProvider
 
         });
 
-        $settings = Setting::where('id', 1)->first();
-        $slider = Homepagebanner::where('is_active', 'Yes')->get();
-       
-        view()->share('settings', $settings);
-        view()->share('slider', $slider);
+        
     }
 }
