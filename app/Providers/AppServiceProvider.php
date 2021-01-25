@@ -23,29 +23,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (\Schema::hasTable('mailsetups')) {
-
-            $mail = DB::table('mailsetups')->first();
-   
-            if ($mail) //checking if table is not empty
-            {
-                $config = array(
-                    'driver' => 'SMTP',
-                    'host' => $mail->mail_host,
-                    'port' => $mail->mail_port,
-                    'from' => array(
-                        'address' => $mail->mail_username,
-                        'name' => "MNS"
-                    ),
-                    'encryption' => $mail->mail_encryption,
-                    'username' => $mail->mail_username,
-                    'password' => $mail->mail_password
-                    // 'bcc'        => $mail->bcc_mail
-                );
-                Config::set('mail', $config);
-            }
-
-        }
         Schema::defaultStringLength(191);
     }
 
